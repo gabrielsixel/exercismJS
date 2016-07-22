@@ -6,6 +6,9 @@
 var Bob = function() {};
 
 const Default = 'Whatever.';
+const Shouting = 'Whoa, chill out!';
+const Question = 'Sure.';
+const Saying = 'Fine. Be that way!';
 
 Bob.prototype.hey = function(input) {
 return Default;
