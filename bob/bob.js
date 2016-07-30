@@ -5,37 +5,31 @@
 
 var Bob = function() {};
 
+Bob.prototype.silent = function(input) {
+  return input.replace(/\s+/g, '') === '';
+};
+
+Bob.prototype.question = function(input) {
+  return input[input.length - 1] === '?';
+};
+
+Bob.prototype.yelling = function(input) {
+  return input.toUpperCase() === input && /[A-Z]/.test(input);
+};
 
 Bob.prototype.hey = function(input) {
   var length = input.length;
   switch (true) {
-    //Asking a question, checks if the last character is a questiion mark
-    case input.charAt(length - 1) === '?':
-    return 'Sure.';
-    case (input === undefined || input === '') :
-    return 'Fine. Be that way!';
-    //Shouting checks if the sentence match the Regular Expression
-    case this.yelling(input) :
-    return 'Whoa, chill out!';
+    case this.yelling(input):
+      return 'Whoa, chill out!';
+    case this.silent(input) :
+      return 'Fine. Be that way!';
+    case this.question(input) :
+      return 'Sure.';
     default:
-    return 'Whatever.';
+      return 'Whatever.';
   }
 };
 
-Bob.prototype.yelling = function(input) {
-  var length = input.length;
-  var temp = '';
-  var regexUpper = new RegExp('([\u0041-\u1E921][A-Z-_:]+(?:(?:[^\r\n]\s[\u0041-\u1E921-_:]+)?)){1,}[^a-z]', 'gm');
-
-  for (var i = 0; i < length; i++) {
-    temp += input.charAt(i).toUpperCase();
-  }
-  if (temp !== input) {
-    if (!regexUpper.test(input)) {
-      return false;
-    }
-  }
-  return true;
-};
 
 module.exports = Bob;
