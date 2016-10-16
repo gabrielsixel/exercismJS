@@ -4,10 +4,10 @@ var word = new Word();
 describe('count()', function() {
 
   it('counts one word', function() {
-    expect(word.count("wordTest")).toEqual( { word: 1 } );
+    expect(word.count("word")).toEqual( { word: 1 } );
   });
 
-  xit('counts one of each', function() {
+  it('counts one of each', function() {
     var expectedCounts = { one: 1, of: 1, each: 1 };
     expect(word.count('one of each')).toEqual(expectedCounts);
   });
