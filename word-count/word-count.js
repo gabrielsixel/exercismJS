@@ -1,13 +1,17 @@
 var Word = function() {};
 
 Word.prototype.count = function(s) {
+  s = s.toLowerCase();
   var phrase = s.split(" ");
   var words = {};
-  for(word in phrase) {
+  for(var i = phrase.length -1; i >= 0; i--) {
     var counter = 0;
-    if (phrase[word] === phrase[word]) {
-      counter++;
-      words[phrase[word]] = counter;
+    for(word in phrase) {
+      if (phrase[word] === phrase[i]) {
+        counter++;
+        words[phrase[word]] = counter;
+      }
+
     }
   }
   return words;
