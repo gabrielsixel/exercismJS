@@ -47,17 +47,17 @@ describe('count()', function() {
     expect(word.count('hello\tworld')).toEqual(expectedCounts);
   });
 
-  xit('counts multiple spaces as one', function() {
+  it('counts multiple spaces as one', function() {
     var expectedCounts = { hello: 1, world: 1 };
     expect(word.count('hello  world')).toEqual(expectedCounts);
   });
 
-  xit('does not count leading or trailing whitespace', function() {
+  it('does not count leading or trailing whitespace', function() {
     var expectedCounts = { introductory: 1, course: 1 };
     expect(word.count('\t\tIntroductory Course      ')).toEqual(expectedCounts);
   });
 
-  xit('handles properties that exist on Object’s prototype', function() {
+  it('handles properties that exist on Object’s prototype', function() {
     var expectedCounts = { reserved: 1, word: 1, like: 1, constructor: 1, and: 1, tostring: 1, 'ok?': 1 };
     expect(word.count('reserved word like constructor and toString ok?')).toEqual(expectedCounts);
   });
