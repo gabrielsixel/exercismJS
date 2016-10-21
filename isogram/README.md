@@ -36,4 +36,3 @@ Wikipedia [https://en.wikipedia.org/wiki/Isogram](https://en.wikipedia.org/wiki/
 
 ## Submitting Incomplete Problems
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
-
